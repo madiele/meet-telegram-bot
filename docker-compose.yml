@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - ./backup.bin:/backup.bin
+      - ${APP_DATA_PATH:?err}/letsmeet/postgresql/var/lib/postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=letsmeet
+      - POSTGRES_PASSWORD=letsmeet
+      - POSTGRES_DB=letsmeet
+        #command: sh -c 'sleep 10 && if [ ! -f /var/lib/postgresql/data/PG_VERSION ]; then pg_restore --verbose --clean --no-acl --no-owner -h db -U letsmeet -d letsmeet /backup.bin; fi'
+
+  letsmeet:
+    build: .
+    #command: python manage.py migrate
+    depends_on:
+      - db
+    environment:
+      - "BOT_TOKEN=????????????"
+      - PYROGRAM_API_HASH=???????????????
+      - PYROGRAM_API_ID=123456
+      - "SECRET_KEY="
+      - WEB_CONCURRENCY=3
+      - WEBHOOK_PREFIX=/???????
+      - WEBHOOK_SITE=https://???????.duckdns.org
