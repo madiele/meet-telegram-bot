@@ -50,7 +50,3 @@ If you would like to contribute to this project, please follow these guidelines:
 ## License
 
 This project is licensed under the [MIT License](LICENSE). Feel free to use and modify it as per your needs.
-
-## Contact
-
-If you have any questions or need further assistance, please feel free to reach out to us at [email@example.com]. We are always here to help!
